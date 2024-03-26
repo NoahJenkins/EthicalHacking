@@ -9,10 +9,13 @@ def scan(target, ports):
 def scan_port(ipaddress, port):
     try:
         sock = socket.socket()
+        sock.settimeout(1)  # Set a timeout for the connection attempt
         sock.connect((ipaddress, port))
-        print(f"[+] Port Opened " + str(port))
-    except:
-        print(f"[-] Port Closed " + str(port))
+        print(f"[+] Port Opened: {port}")
+        sock.close()  # Close the socket after successful connection
+    except socket.error:
+        print(f"[-] Port Closed: {port}")
+
 
 
 targets = input("[*] Enter Targets IP Address (split them by comma): ")
