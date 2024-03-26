@@ -28,5 +28,6 @@ if "," in targets:
 
 print("scan is complete")
 
-           
-        
+#notes future add on, provide user option to scan all ports or specific ports
+#also look set program to while loop and provide user option to run program again
+#also provide user option to save scan results to a file
