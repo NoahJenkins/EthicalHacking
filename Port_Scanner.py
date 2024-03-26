@@ -14,7 +14,8 @@ def scan_port(ipaddress, port):
         print(f"[+] Port Opened: {port}")
         sock.close()  # Close the socket after successful connection
     except socket.error:
-        print(f"[-] Port Closed: {port}")
+        return True
+  #      print(f"[-] Port Closed: {port}")
 
 
 
@@ -24,6 +25,8 @@ if "," in targets:
     print(termcolor.colored(("[*] Scanning Multiple Targets"), 'green'))
     for ip_addr in targets.split(","):
         scan(ip_addr.strip(" "), ports)
+
+print("scan is complete")
 
            
         
